@@ -60,3 +60,8 @@ activate :external_pipeline,
   latency: 1
 
 ignore 'javascripts/*.jsx'
+
+# disable layouts for share graphic pages
+page '/graphic1.html', :layout => false
+page '/graphic2.html', :layout => false
+page '/graphic3.html', :layout => false
