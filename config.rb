@@ -23,6 +23,9 @@ configure :development do
   activate :livereload
 end
 
+# dotenv for s3 creds
+activate :dotenv
+
 ###
 # Helpers
 ###

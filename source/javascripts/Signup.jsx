@@ -7,8 +7,8 @@ export default class Signup extends React.Component {
         super(props);
         this.displayName = 'Signup';
         this.state = {
-          name: "test guy",
-          email: "test@test.com"
+          name: "",
+          email: ""
         }
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);

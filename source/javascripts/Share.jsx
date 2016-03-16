@@ -2,14 +2,18 @@ import React                                from "react";
 import ShareImage                           from "./ShareImage.jsx";
 import _                                    from "lodash";
 import Signup                               from "./Signup.jsx";
+import Querystring                          from "query-string";
 
 export default class Share extends React.Component {
+   
     constructor(props) {
         super(props);
         this.displayName = 'Share';
         this.handleShare = this.handleShare.bind(this);
         this.formatName = this.formatName.bind(this);
         this.handleSignup = this.handleSignup.bind(this);
+        this.identified = Querystring.parse(this.props.location.search).uid ? true : false;
+        this.uid = querystring.parse(this.props.location.search).uid;
         this.state = {
           shareImages: [
             { 
@@ -31,8 +35,8 @@ export default class Share extends React.Component {
               tw: "http://google.com"
             }
           ],
-          identified: querystring.parse(this.props.location.search).uid ? true : false,
-          uid: querystring.parse(this.props.location.search).uid
+          identified: this.identified,
+          uid: this.uid
         }
     }
 
