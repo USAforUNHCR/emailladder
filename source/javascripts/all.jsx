@@ -25,7 +25,7 @@ class App extends React.Component {
         this.displayName = 'App';
         this.state = {
           gw: new Groundwork ({ 'api_url': 'https://api.thegroundwork.com',
-            'oauth_client_id': 'pub-un-test.caeet--l5KRHVi1lzqT3mwtfOvRffZa28dKyOEzWFOc_c7NZJwDrOYT5n9lcMlG0.kg7QN9cpeKpe4x2ymN6M54AWLJbw'
+            'oauth_client_id': 'pub-un.cross-audience-email-engagement--WsUMROq5cy8Q3wCZPew4TaUDSsbH9D3.FF8mFVLOfModiOajBnGbBA7DtqtZSIgTOTRmcmw4ytRMc7Tr1e99_w'
           }),
         }
     }
