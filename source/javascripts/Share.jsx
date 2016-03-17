@@ -75,14 +75,12 @@ export default class Share extends React.Component {
       this.setState({email: email});
       this.props.groundwork.supporters.create(data)
       .then((response) =>{
-        console.log(response);
         this.setState({
           identified: true,
           signedUp: true
         });
       })
       .catch((response) => {
-        console.log(response);
         this.setState({
           signupMessage: response.data.error.msg
         });
