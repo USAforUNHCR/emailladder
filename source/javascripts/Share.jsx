@@ -20,19 +20,19 @@ export default class Share extends React.Component {
               id: 1,
               url: "/images/graphic1.jpg",
               fb: "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frefugeesurvey.com%2Fgraphic1.html",
-              tw: "https://twitter.com/intent/tweet?text=Only+1+in+2+refugee+children+is+in+primary+school.+Join+me+and+spread+the+word+to+%23supportrefugees.&url=http%3a%2f%2fbit.ly%2f1S4H2CN",
+              tw: "https://twitter.com/intent/tweet?text=Only+1+in+2+refugee+children+is+in+primary+school.+Join+me+and+spread+the+word+to+%23supportrefugees.&url=http%3A%2F%2Fbit.ly%2F1U8EyHi",
             },
             { 
               id: 2,
               url: "/images/graphic2.jpg",
               fb: "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frefugeesurvey.com%2Fgraphic2.html",
-              tw: "https://twitter.com/intent/tweet?text=Did+you+know%3f+50%25+of+all+%23refugees+are+women+%26+children.+Join+me+%26+spread+the+word+to+%23supportrefugees.&url=http%3a%2f%2fbit.ly%2f1pMcqg3"
+              tw: "https://twitter.com/intent/tweet?text=Did+you+know%3f+50%25+of+all+%23refugees+are+women+%26+children.+Join+me+%26+spread+the+word+to+%23supportrefugees.&url=http%3A%2F%2Fbit.ly%2F1S4H2CN"
             },
             {
               id: 3,
               url: "/images/graphic3.jpg",
               fb: "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frefugeesurvey.com%2Fgraphic3.html",
-              tw: "https://twitter.com/intent/tweet?text=1+in+122+people+is+either+internally+displaced%2c+seeking+asylum%2c+or+a+%23refugee.+Spread+the+word.+%23supportrefugees&url=http%3a%2f%2fbit.ly%2f1U8EyHi"
+              tw: "https://twitter.com/intent/tweet?text=1+in+122+people+is+either+internally+displaced%2c+seeking+asylum%2c+or+a+%23refugee.+Spread+the+word.+%23supportrefugees&url=http%3A%2F%2Fbit.ly%2F1pMcqg3"
             }
           ],
           identified: this.identified,
