@@ -2,6 +2,7 @@ import React                                             from "react";
 import ReactDOM                                          from "react-dom";
 import Poll                                              from './Poll.jsx';
 import Share                                             from './Share.jsx';
+import Quiz                                              from './Quiz.jsx';
 import { Router, Route, IndexRoute, Link, hashHistory}   from 'react-router';
 
 
@@ -52,6 +53,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={Poll}/>
         <Route path="share" component={Share}/>
+        <Route path="quiz" component={Quiz}/>
       </Route>
     </Router>
 , document.getElementById('root')
