@@ -6,9 +6,6 @@ class QuizQuestions extends React.Component {
     constructor(props) {
         super(props);
         this.displayName = 'QuizQuestions';
-        this.questions = this.props.questions;
-        this.unanswered = R.whereEq({answered: false});
-        this.unansweredQuestions = R.filter(this.unanswered);
     }
 
     handleAnswer(event,question){
@@ -16,11 +13,7 @@ class QuizQuestions extends React.Component {
     }
 
     render() {
-      const unanswered = this.unanswered;
-      const unansweredQuestions = this.unansweredQuestions; 
-      const firstUnanswered = R.compose(R.head, unansweredQuestions);
-
-      const Question = (questions) => createQuestionEl(firstUnanswered(questions));
+      const Question = (questions) => createQuestionEl(R.head(questions));
 
       const createQuestionEl = (question) => {
         return (
@@ -47,7 +40,7 @@ class QuizQuestions extends React.Component {
         </div>
         )
       }
-        return <div>{Question(this.questions)}</div>;
+        return <div>{Question(this.props.questions)}</div>;
     }
 }
 export default QuizQuestions;

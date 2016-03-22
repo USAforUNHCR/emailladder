@@ -2,6 +2,7 @@ import React                                from "react";
 import Querystring                          from "query-string";
 import QuizResults                          from "Results.jsx";
 import QuizQuestions                        from "Questions.jsx";
+import R                                    from "ramda";
 
 class Quiz extends React.Component {
     constructor(props) {
@@ -11,6 +12,10 @@ class Quiz extends React.Component {
         this.uid = querystring.parse(this.props.location.search).uid;
         this.displayName = 'Quiz';
         this.handleAnswer = this.handleAnswer.bind(this);
+
+        this.unanswered = R.whereEq({answered: false});
+        this.unansweredQuestions = R.filter(this.unanswered);
+
         this.state = {
           questions: [
             {
@@ -60,17 +65,13 @@ class Quiz extends React.Component {
       this.setState({questions: nextQuestions});
     }
 
-    checkComplete(questions){
-      let complete = questions.filter((question) => question.answered === false).length === 0; 
-      console.log(questions.filter((question) => question.answered === false));
-      console.log(complete);
-      return complete;
-    }
-
     render() {
+
+        const unansweredQuestions = (questions) => this.unansweredQuestions(questions);
+        const checkComplete = (questions) => unansweredQuestions(questions).length === 0;
         return (
         <div className="quiz_page_container">Quiz
-          {!this.checkComplete(this.state.questions) ? <QuizQuestions handleAnswer={this.handleAnswer} questions={this.state.questions}/> : <QuizResults questions={this.state.questions} answers={this.state.answersIdx}/> }
+          {!checkComplete(this.state.questions) ? <QuizQuestions handleAnswer={this.handleAnswer} questions={unansweredQuestions(this.state.questions)}/> : <QuizResults questions={this.state.questions} answers={this.state.answersIdx}/> }
         </div>
         )
     }
