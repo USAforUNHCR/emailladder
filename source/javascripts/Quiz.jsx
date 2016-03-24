@@ -19,26 +19,26 @@ class Quiz extends React.Component {
         this.state = {
           questions: [
             {
-              q: "True or False, climate change leads to more refugees. ",
-              answers:[ "True","False",],
-              a: 0,
-              answered: false
-            },
-            {
               q: "How many people are currently displaced around the world?",
-              answers:["60 Million","28 Million","22 Million","88 Million"],
+              answers:[ "60 Million","28 Million", "22 Million", "88 Million"],
               a: 0,
               answered: false
             },
             {
-              q: "Which of the following is a direct result of climate change that leads to conflict?",
-              answers:["Lack of drinkable water","Crops drying up","Livestock Dying","All of the above"],
-              a: 3,
+              q: "True or False, 50% of all refugees are women and children",
+              answers:["True", "False"],
+              a: 0,
+              answered: false
+            },
+            {
+              q: "What percent of refugee children are in primary school?",
+              answers:[ "20%", "50%", "100%", "80%"],
+              a: 1,
               answered: false
             },
             {
               q: "Which country currently has a refugee crisis?",
-              answers:["Syria", "Ukraine", "Colombia", "All of the above"],
+              answers:["Syria", "Ukraine", "South Sudan", "All of the above"],
               a: 3,
               answered: false
             }
@@ -69,9 +69,11 @@ class Quiz extends React.Component {
 
         const unansweredQuestions = (questions) => this.unansweredQuestions(questions);
         const checkComplete = (questions) => unansweredQuestions(questions).length === 0;
+        let qNum = ((this.state.questions.length) - (unansweredQuestions(this.state.questions).length) + 1);
+
         return (
-        <div className="quiz_page_container">Quiz
-          {!checkComplete(this.state.questions) ? <QuizQuestions handleAnswer={this.handleAnswer} questions={unansweredQuestions(this.state.questions)}/> : <QuizResults questions={this.state.questions} answers={this.state.answersIdx}/> }
+        <div className="quiz_page_container">
+          {!checkComplete(this.state.questions) ? <QuizQuestions qNum={qNum} handleAnswer={this.handleAnswer} questions={unansweredQuestions(this.state.questions)}/> : <QuizResults groundwork={this.groundwork} questions={this.state.questions} answers={this.state.answersIdx}/> }
         </div>
         )
     }

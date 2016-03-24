@@ -6,10 +6,13 @@ class QuizQuestions extends React.Component {
     constructor(props) {
         super(props);
         this.displayName = 'QuizQuestions';
+        this.qNum = this.props.qNum
     }
 
     handleAnswer(event,question){
-      this.props.handleAnswer(parseInt(event.target.id), question);
+      if(event.target.type == "submit"){
+        this.props.handleAnswer(parseInt(event.target.id), question);
+      }
     }
 
     render() {
@@ -18,6 +21,9 @@ class QuizQuestions extends React.Component {
       const createQuestionEl = (question) => {
         return (
           <div className="question_container" onClick={(e) => this.handleAnswer(e,question.q)}>
+            <p className="question_number">
+              Q{this.qNum}
+            </p>
             <p className="question_text">
               {question.q}
             </p>
