@@ -69,21 +69,25 @@ class Results extends React.Component {
 
         const correctEl = (question,index) => {
           return (
-            <div key={index} className="correct_answer">
-              <p>The Question was: {question.q}</p>
-              <p>The Answer was: {question.answers[question.a]}</p>
-              <p>You were correct!</p>
+            <div key={index} className="answer_div">
+              <p className="question_text">The Question was: {question.q}</p>
+              <div className="correct_answer">
+                <p>The Answer was: {question.answers[question.a]}</p>
+                <p>You were correct!</p>
+              </div>
             </div>
             )
         }
 
         const wrongEl = (question,index) => {
           return (
-            <div key={index} className="wrong_answer">
-              <p>The Question was: {question.q}</p>
-              <p>The Answer was: {question.answers[question.a]}</p>
-              <p>Your Answer was: {question.answers[question.yourAns]}</p>
-              <p>You were incorrect :(</p>
+            <div key={index} className="answer_div">
+              <p className="question_text">The Question was: {question.q}</p>
+              <div className="wrong_answer">
+                <p>The Answer was: {question.answers[question.a]}</p>
+                <p>Your Answer was: {question.answers[question.yourAns]}</p>
+                <p>You were incorrect :(</p>
+              </div>
             </div>
             )
         }
