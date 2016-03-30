@@ -3,6 +3,7 @@ import ReactDOM                                          from "react-dom";
 import Poll                                              from './Poll.jsx';
 import Share                                             from './Share.jsx';
 import Quiz                                              from './Quiz.jsx';
+import Pledge                                            from './Pledge.jsx';
 import { Router, Route, IndexRoute, Link, hashHistory}   from 'react-router';
 
 
@@ -26,7 +27,7 @@ class App extends React.Component {
         this.displayName = 'App';
         this.state = {
           gw: new Groundwork ({ 'api_url': 'https://api.thegroundwork.com',
-            'oauth_client_id': 'pub-un.cross-audience-email-engagement--WsUMROq5cy8Q3wCZPew4TaUDSsbH9D3.FF8mFVLOfModiOajBnGbBA7DtqtZSIgTOTRmcmw4ytRMc7Tr1e99_w'
+            'oauth_client_id': 'pub-un.gamestorm--OzEG9_jYxgytLt1wF85ciULS9pb4rHw2YSnL8Cxsrn7tk9eddOx2LJPi80SpoSaWtyZJOKbQc8UPN21vk2_hxw'
           }),
         }
     }
@@ -54,6 +55,7 @@ ReactDOM.render(
         <IndexRoute component={Poll}/>
         <Route path="share" component={Share}/>
         <Route path="quiz" component={Quiz}/>
+        <Route path="pledge" component={Pledge}/>
       </Route>
     </Router>
 , document.getElementById('root')
