@@ -1,0 +1,84 @@
+$red: #dd2e2e;
+
+.pledge_container {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  padding: 2em;
+  & h2{
+    text-align: center;
+    font-size: 2.5em;
+  }
+  & .bold_paragraph {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+  & .body_copy{
+    width: 80%;
+    margin: auto;
+  }
+  & form {
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+    padding: 0.5em;
+    box-sizing: border-box;
+
+    & label {
+      display: inline-block;
+      width: 35%;
+      text-align: right;
+      margin-right: 2em;
+      margin-bottom: 1em;
+    }
+    & input {
+      width: 40%;
+    }
+     & button {
+    margin: auto;
+    margin-top: 1em;
+    padding: 0.5em;
+    display: block;
+    background-color: $red;
+    border: solid 2px $red;
+    border-radius: 0.3em;
+    color: white;
+    transition: all 0.3s ease-in-out;
+      &:hover {
+        color: $red;
+        background-color: white;
+      }
+    }
+     & .errors{
+      text-align: center;
+      color: $red;
+      font-size: 0.75em;
+    }
+  }
+}
+
+.pledge_thanks {
+  width: 95%;
+  margin: auto;
+  max-width: 800px;
+  text-align: center;
+  padding-top: 5vw;
+  font-size: 2.5em;
+  font-weight: 700;
+  & .pledge_share_text {
+    font-size: 0.75em;
+  }
+  & i {
+    color: #256cdd;
+    font-size: 3em;
+    margin: 0.2em;
+    &:hover {
+      color: lighten(#256cdd, 20%);
+    }
+    &:visited {
+      color: #256cdd;
+    }
+  }
+}
+

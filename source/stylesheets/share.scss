@@ -1,0 +1,73 @@
+$red: #dd2e2e;
+
+.share_container {
+  width: 90%;
+  max-width: 1500px;
+  margin: auto;
+  text-align: center;
+}
+
+.pic_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.share_wrapper {
+  display: block;
+  margin: 1.5em;
+  width: 40%;
+  min-width: 300px;
+  text-align: center;
+  & img{
+    width: 100%;
+  }
+  & i {
+    color: #256cdd;
+    font-size: 3em;
+    margin: 0.2em;
+    &:hover {
+      color: lighten(#256cdd, 20%);
+    }
+    &:visited {
+      color: #256cdd;
+    }
+  }
+}
+
+.signup {
+  padding: 1em;
+  line-height: 2em;
+  margin: auto;
+  width: 90%;
+  max-width: 400px;
+  & p{
+    margin: auto;
+    font-weight: 700;
+  }
+  & label {
+    margin: 0.3em;
+    width: 15%;
+    display: inline-block;
+    text-align: left;
+  }
+  & input{
+    width: 70%;
+  }
+
+  & button {
+    margin: auto;
+    margin-top: 1em;
+    padding: 0.5em;
+    display: block;
+    background-color: $red;
+    border: solid 2px $red;
+    border-radius: 0.3em;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: $red;
+      background-color: white;
+    }
+  }
+}

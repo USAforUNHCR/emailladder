@@ -13,3 +13,5 @@ gem 'middleman', '>= 4.0.0'
 gem 'middleman-livereload'
 
 gem 's3_website'
+
+gem 'middleman-dotenv', '~> 2.0'
