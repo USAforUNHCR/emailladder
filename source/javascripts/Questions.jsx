@@ -1,5 +1,4 @@
 import React                                from "react";
-import Rx                                   from "rx";
 import R                                    from "ramda";
 
 class QuizQuestions extends React.Component {

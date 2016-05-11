@@ -27,7 +27,7 @@ class App extends React.Component {
         this.displayName = 'App';
         this.state = {
           gw: new Groundwork ({ 'api_url': 'https://api.thegroundwork.com',
-            'oauth_client_id': 'pub-un.cross-audience-email-engagement--WsUMROq5cy8Q3wCZPew4TaUDSsbH9D3.FF8mFVLOfModiOajBnGbBA7DtqtZSIgTOTRmcmw4ytRMc7Tr1e99_w'
+            'oauth_client_id': 'pub-un-test.geer-email-ladder--I3yGS7_37XaNkHAZXxVdGBI0SZvJLKZmE31uCHuJVKaCuz5kFxFMsAQcfCObmLqE9gGHNY9u6lEvsB8.DmtTDA'
           }),
         }
     }
@@ -35,12 +35,12 @@ class App extends React.Component {
         return (
         <div className="wrapper">
           <div className="inner-content">
-            <div className="header" style={{background: "#dd2e2e"}}>
+            <div className="header" style={{background: "#152F56"}}>
               <span><h1>ACT NOW</h1><img className="arrowdown" src="/images/arrow.png"/></span><span><h1>SPEAK UP</h1><img className="arrowup" src="/images/arrow.png"/></span>
             </div>
               {React.cloneElement(this.props.children, {groundwork: this.state.gw})}
            </div>
-          <footer className="site-footer" style={{background: "#dd2e2e"}} >Powered by <a href="http://unrefugees.org" target="_blank"><img src="/images/U4Ulogo.png"/></a></footer>
+          <footer className="site-footer" style={{background: "#152F56"}} >Powered by <a href="http://unrefugees.org" target="_blank"><img src="/images/U4Ulogo.png"/></a></footer>
         </div>
         )
     }
