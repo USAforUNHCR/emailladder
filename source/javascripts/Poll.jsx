@@ -2,7 +2,7 @@ import React                                from "react";
 
 module.exports = React.createClass({
   getInitialState() {
-    let queries = querystring.parse() || {};
+    let queries = querystring.parse(window.location.hash["#/?uid"]) || {};
     let needZip = queries.haz ? false : true;
       return {
           questions: [
@@ -92,7 +92,7 @@ module.exports = React.createClass({
 
   sendData: function(){
     let data = {
-      source: this.state.supporterData.source + " " + this.state.color.colName,
+      source: this.state.supporterData.source,
       tags: {
         send_email: 0,
         answers: this.state.answers,
