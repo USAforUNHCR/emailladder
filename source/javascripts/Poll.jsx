@@ -2,8 +2,8 @@ import React                                from "react";
 
 module.exports = React.createClass({
   getInitialState() {
-    let queries = querystring.parse(window.location.hash["#/?uid"]) || {};
-    let needZip = queries.haz ? false : true;
+    let queries = querystring.parse(window.location.hash)["#/?uid"] || undefined;
+    let needZip = false
       return {
           questions: [
 
@@ -35,7 +35,7 @@ module.exports = React.createClass({
             ],
           currentQuestion: -1,
           answers: [],
-          queries: queries,
+          uid: queries,
           needZip: needZip,
           supporterData: {
             source: "email-ladder poll",
@@ -99,10 +99,9 @@ module.exports = React.createClass({
         color: this.state.color.colName
       }
     };
-    this.state.queries.uid ? data.externalId = this.state.queries.uid : null;
-    this.state.supporterData.postalCode ? data.postalCode = this.state.supporterData.postalCode : null;
+    this.state.uid ? data.externalId = this.state.uid: null;
     this.props.groundwork.supporters.create(data)
-    .then(function(response) {console.log("sent")})
+    .then(function(response) {console.log(response)})
     .catch(function(response) {console.log("not sent")});
   },
 
