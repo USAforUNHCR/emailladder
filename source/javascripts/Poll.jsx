@@ -38,7 +38,7 @@ module.exports = React.createClass({
           queries: queries,
           needZip: needZip,
           supporterData: {
-            source: "CAEET poll",
+            source: "email-ladder poll",
             tags: {
               "send_email": 0
             }
@@ -113,7 +113,7 @@ module.exports = React.createClass({
         <p>Share your thoughts in our public opinion poll today.</p>
         <p>This is your chance to ensure your voice  is heard and send a clear message that refugees must continue to be supported around the world 
           as they flee unspeakable terrors.</p>
-         <button className="intro-button" style={{background: this.state.color.hex}} onClick={this.nextQ}>
+         <button className="intro-button" onClick={this.nextQ}>
           Click here to complete the poll.
         </button>
       </div>
@@ -154,7 +154,7 @@ const QuestionList = React.createClass({
     let answers = this.props.question.answers;
     return(
       <div className="question-container">
-        <div className="q-number" style={{borderLeft: "6px solid" + this.props.color}}>Q{this.props.qNumber + "."}</div><div className="question"><p>{question.q}</p>
+        <div className="q-number" style={{borderLeft: "6px solid #152F56"}}>Q{this.props.qNumber + "."}</div><div className="question"><p>{question.q}</p>
           {
             answers.map(function(answer,index){
               if (answer !== "Other"){
