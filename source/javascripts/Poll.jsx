@@ -2,7 +2,7 @@ import React                                from "react";
 
 module.exports = React.createClass({
   getInitialState() {
-    let queries = querystring.parse(window.location.hash)["#/?uid"] || undefined;
+    let queries = querystring.parse(window.location.search).uid || undefined;
     let needZip = false
       return {
           questions: [
@@ -101,7 +101,7 @@ module.exports = React.createClass({
     };
     this.state.uid ? data.externalId = this.state.uid: null;
     this.props.groundwork.supporters.create(data)
-    .then(function(response) {console.log(response)})
+    .then(function(response) {console.log('sent')})
     .catch(function(response) {console.log("not sent")});
   },
 
