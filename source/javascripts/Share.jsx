@@ -3,6 +3,7 @@ import ShareImage                           from "./ShareImage.jsx";
 import _                                    from "lodash";
 import Signup                               from "./Signup.jsx";
 import Querystring                          from "query-string";
+import {merge}                              from "ramda";
 
 export default class Share extends React.Component {
    
@@ -14,25 +15,26 @@ export default class Share extends React.Component {
         this.handleSignup = this.handleSignup.bind(this);
         this.identified = Querystring.parse(this.props.location.search).uid ? true : false;
         this.uid = querystring.parse(this.props.location.search).uid;
+        this.source = querystring.parse(this.props.location.search).src;
         this.state = {
           shareImages: [
             { 
               id: 1,
               url: "/images/graphic1.jpg",
               fb: "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frefugeesurvey.com%2Fgraphic1.html",
-              tw: "https://twitter.com/intent/tweet?text=Only+1+in+2+refugee+children+is+in+primary+school.+Join+me+and+spread+the+word+to+%23supportrefugees.&url=http%3A%2F%2Fbit.ly%2F1U8EyHi",
+              tw: "https://twitter.com/intent/tweet?text=Did%20you%20know%3F%20Children%20make%20up%20over%2050%25%20of%20the%20world%27s%20%23refugees.%20Join%20me%20%26%20share%20the%20facts%3A%20%23supportrefugees%20&url=http%3A%2F%2Fbit.ly%2F1U8EyHi",
             },
             { 
               id: 2,
               url: "/images/graphic2.jpg",
               fb: "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frefugeesurvey.com%2Fgraphic2.html",
-              tw: "https://twitter.com/intent/tweet?text=Did+you+know%3f+50%25+of+all+%23refugees+are+women+%26+children.+Join+me+%26+spread+the+word+to+%23supportrefugees.&url=http%3A%2F%2Fbit.ly%2F1S4H2CN"
+              tw: "https://twitter.com/intent/tweet?text=Did%20you%20know%3F%2053%25%20of%20%23refugees%20come%20from%20Syria%2C%20Afghanistan%20%26%20Somalia.%20Join%20me%20%26%20share%20the%20facts%3A%20%23supportrefugees%20&url=http%3A%2F%2Fbit.ly%2F1S4H2CN"
             },
             {
               id: 3,
               url: "/images/graphic3.jpg",
               fb: "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frefugeesurvey.com%2Fgraphic3.html",
-              tw: "https://twitter.com/intent/tweet?text=1+in+122+people+is+either+internally+displaced%2c+seeking+asylum%2c+or+a+%23refugee.+Spread+the+word.+%23supportrefugees&url=http%3A%2F%2Fbit.ly%2F1pMcqg3"
+              tw: "https://twitter.com/intent/tweet?text=Did%20you%20know%3F%20Every%205%20min%2C%20150%20new%20people%20are%20forced%20to%20flee.%20Join%20me%20%26%20share%20the%20facts%3A%20%23supportrefugees%20&url=http%3A%2F%2Fbit.ly%2F1pMcqg3"
             }
           ],
           identified: this.identified,
@@ -50,21 +52,14 @@ export default class Share extends React.Component {
         data.email = this.state.email;
       }
       
-      data.source = "CAEET share " + type + " image " + id; 
+      data.source = "ladder share " + (this.source ? this.source : "") + " " + type + " image " + id; 
       data.tags = {
         send_email: 0,
         shareType: type,
         imageId: id,
         imagePosition: position
       };
-
-      this.props.groundwork.supporters.create(data)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((response) => {
-        console.log(response);
-      });
+      this.sendData(data);
     }
 
     handleSignup(name, email){
@@ -73,17 +68,26 @@ export default class Share extends React.Component {
       _.merge(data, namesObj);
       data.source = "CAAEET share email signup";
       this.setState({email: email});
-      this.props.groundwork.supporters.create(data)
+      this.sendData(data);
+    }
+
+    sendData(payload) {
+      
+      this.props.groundwork.supporters.create(payload)
       .then((response) =>{
-        this.setState({
-          identified: true,
-          signedUp: true
-        });
+        if(response.data.email){
+          this.setState({
+            identified: true,
+            signedUp: true
+          });
+        }
+        console.log(response);
       })
       .catch((response) => {
         this.setState({
           signupMessage: response.data.error.msg
         });
+        console.log(response);
       });
     }
 
