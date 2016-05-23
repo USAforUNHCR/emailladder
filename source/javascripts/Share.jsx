@@ -81,13 +81,11 @@ export default class Share extends React.Component {
             signedUp: true
           });
         }
-        console.log(response);
       })
       .catch((response) => {
         this.setState({
           signupMessage: response.data.error.msg
         });
-        console.log(response);
       });
     }
 
