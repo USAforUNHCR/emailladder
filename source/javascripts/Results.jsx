@@ -12,6 +12,7 @@ class Results extends React.Component {
         this.questions = this.props.questions;
         this.groundwork = this.props.groundwork;
         this.uid = this.Querystring.parse(location.hash).uid || false;
+        this.src = this.Querystring.parse(location.hash).src || false;
 
         this.state = {
           uid: this.uid
@@ -26,14 +27,15 @@ class Results extends React.Component {
     }
 
     makeAnswersData(answersArr,uid){
+      let src = this.src;
       const data = {
-        source: "CAEET Quiz",
         tags: {
           answers: answersArr,
           send_email: 0
         }
       };
       uid ? data.externalId = uid : null;
+      src ? data.source = "Email Ladder Quiz " + src : data.source = "Email Ladder Quiz";
       return data;
     }
 
@@ -49,13 +51,15 @@ class Results extends React.Component {
     }
 
     handleEmojiClick(uid){
+      let src = this.src;
       const data = {
-        source: "CAEET Quiz Emoji",
+        source: "Email Ladder Quiz Emoji",
         tags: {
           send_email: 0
         }
       };
       uid ? data.externalId = uid : null;
+      src ? data.source = data.source + " " + src : null;
       this.sendData(data);
     }
 
