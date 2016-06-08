@@ -2,7 +2,8 @@ import React                                from "react";
 
 module.exports = React.createClass({
   getInitialState() {
-    let queries = querystring.parse(window.location.search).uid || undefined;
+    let uid = querystring.parse(window.location.search).uid || undefined;
+    let src = querystring.parse(window.location.search).src || undefined;
     let needZip = false
       return {
           questions: [
@@ -15,12 +16,12 @@ module.exports = React.createClass({
               { 
                 id: 2,
                 q: "Do you support or oppose the following statement?  The United States government and businesses can do more to develop innovative ways of solving the refugee crisis.",
-                answers:["Strongly oppose","Somewhat oppose","Neither support nor oppose","Somewhat support","Strongly support"]
+                answers:["Strongly support","Somewhat support","Neither support nor oppose","Somewhat oppose","Strongly oppose"]
               },
               {
                 id: 3,
                 q: "Do you support the following statement? The US can increase the amount of money budgeted to help refugees and communities in countries that are hosting a large number of refugees.",
-                answers:["Strongly oppose","Somewhat oppose","Neither support nor oppose","Somewhat support","Strongly support"]
+                answers:["Strongly support","Somewhat support","Neither support nor oppose","Somewhat oppose","Strongly oppose"]
               },
               {
                 id: 4,
@@ -35,7 +36,7 @@ module.exports = React.createClass({
             ],
           currentQuestion: -1,
           answers: [],
-          uid: queries,
+          uid: uid,
           needZip: needZip,
           supporterData: {
             source: "email-ladder poll",
@@ -92,7 +93,6 @@ module.exports = React.createClass({
 
   sendData: function(){
     let data = {
-      source: this.state.supporterData.source,
       tags: {
         send_email: 0,
         answers: this.state.answers,
@@ -100,6 +100,8 @@ module.exports = React.createClass({
       }
     };
     this.state.uid ? data.externalId = this.state.uid: null;
+    data.source = "email ladder poll";
+    this.state.src ? data.source = data.source + " " + this.state.src : null
     this.props.groundwork.supporters.create(data)
     .then(function(response) {console.log('sent')})
     .catch(function(response) {console.log("not sent")});
