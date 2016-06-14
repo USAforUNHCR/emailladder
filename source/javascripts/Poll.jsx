@@ -10,18 +10,18 @@ module.exports = React.createClass({
 
               {
                 id: 1,
-                q: "Do you support the efforts of organizations like the UN Refugee Agency to serve people around the world who have been forced to flee their homes due to war, persecution and threats?",
+                q: "Do you agree with the efforts of organizations like the UN Refugee Agency to serve people around the world who have been forced to flee their homes due to war, persecution and threats?",
                 answers:[ "Yes","No","I don't know"],
               },
               { 
                 id: 2,
-                q: "Do you support or oppose the following statement?  The United States government and businesses can do more to develop innovative ways of solving the refugee crisis.",
-                answers:["Strongly support","Somewhat support","Neither support nor oppose","Somewhat oppose","Strongly oppose"]
+                q: "Do you agree or disagree with the following statement?  The United States government and businesses can do more to develop innovative ways of solving the refugee crisis.",
+                answers:["Strongly agree","Somewhat agree","Neither agree nor disagree","Somewhat disagree","Strongly disagree"]
               },
               {
                 id: 3,
-                q: "Do you support the following statement? The US can increase the amount of money budgeted to help refugees and communities in countries that are hosting a large number of refugees.",
-                answers:["Strongly support","Somewhat support","Neither support nor oppose","Somewhat oppose","Strongly oppose"]
+                q: "Do you agree with the following statement? The US can increase the amount of money budgeted to help refugees and communities in countries that are hosting a large number of refugees.",
+                answers:["Strongly agree","Somewhat agree","Neither agree nor disagree","Somewhat disagree","Strongly disagree"]
               },
               {
                 id: 4,
@@ -38,7 +38,7 @@ module.exports = React.createClass({
           answers: [],
           uid: uid,
           needZip: needZip,
-          supporterData: {
+          agreeerData: {
             source: "email-ladder poll",
             tags: {
               "send_email": 0
